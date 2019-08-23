@@ -1,5 +1,13 @@
 <template>
     <div>
+        <div class="videocontainer">
+            <div class="overlay">
+                <video id="myVideo" playsinline autoplay muted loop> 
+                    <source v-if="selectedComponent=='WeatherApp'" src="@/assets/Cloud-2142.mp4" type="video/mp4">
+                    <source v-else src="@/assets/Universe-13100.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
         <div class="maincomponent">
             <span @click="selectedComponent='Todo'"> Todo </span>
             <span @click="selectedComponent='NumberGuessing'">Number Guessing</span>
