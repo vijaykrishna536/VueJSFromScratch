@@ -3,13 +3,18 @@
         <div class="main">
             <h1> Weather App</h1>
             <h4>Know what your city's weather upto in seconds...</h4>
-            Enter City <input type="text" v-model="city" v-on:keyup.enter="fetchDetails()">
-            <div v-if="error" class="error"> Oops! {{city}} doesn't exist in our database</div> 
+            Select City 
+            <select class="search" v-model="city" v-on:change="fetchDetails()" >
+                <option v-for="(city,index) in cities" :key="index"> {{city}}</option>
+            </select>
+            <!-- <button class="search" v-on:click="fetchDetails()">  Search </button> -->
+            <!-- <div v-if="error" class="error"> Oops! {{city}} doesn't exist in our database</div>  -->
             <div v-if="isCity" class="details">             
-                <div>Temperature <span>{{weather.temp}}</span></div>
-                <div>Humidity <span>{{weather.humidity}}</span></div>
-                <div>Sunrise <span>{{weather.sunrise}}</span></div>
-                <div>Sunset <span>{{weather.sunset}}</span></div>
+                <div>Temperature : <span>{{extractTemprature(weather.main.temp)}} C</span></div>
+                <div>Humidity : <span>{{weather.main.humidity}} %</span></div>
+                <div>Pressure : <span>{{extractPressure(weather.main.pressure)}} BAR </span></div>
+                <div>Sunrise : <span>{{extractTime(weather.sys.sunrise)}} AM</span></div>
+                <div>Sunset : <span>{{extractTime(weather.sys.sunset)}} PM</span></div>
             </div>
             <div>
                 <button @click="clean()"> Clear </button>
@@ -40,6 +45,9 @@
 }
 .details span {
     width:10%;
+}
+.search {
+    margin-left:10px;
 }
 .error {
     color: red;

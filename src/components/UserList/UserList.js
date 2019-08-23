@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { mapGetters } from 'vuex' 
 
 export default{
     name:'UserList',
@@ -37,12 +38,15 @@ export default{
             this.users.splice(this.users.indexOf(user),1);
         },
         callUser () {
-            axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(response=>(this.users=response.data))
-            .catch(error=>console.log(console.error))
+            // axios.get('https://jsonplaceholder.typicode.com/users')
+            // .then(response=>(this.users=response.data))
+            // .catch(error=>console.log(console.error))
+            //this.users = this.usersList;
         }
     },
-    created(){
-        this.callUser();
+    computed : {
+        ...mapGetters ({
+            usersList : 'getUsers'
+        })
     }
 }

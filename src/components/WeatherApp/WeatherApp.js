@@ -1,35 +1,50 @@
 import {mapActions, mapGetters} from 'vuex'
 
-export default{
+export default {
     name:'WeatherApp',
     data () {
         return {
-            isCity:true,
-            error:true,
+            isCity:false,
             city:'',
-            weather:{
-
-            }
+            location : {
+                latitude:0,
+                longitude:0
+            },
+            cities:['Patna','Gaya','London','Mumbai','Bangalore']
+            
         }
     },
     methods : {
+        ...mapActions ({
+            GET_WEATHER_REPORT: "GET_WEATHER_REPORT"
+        }),
         fetchDetails () {
-            
+            this.location.latitude=12.9716,
+            this.location.longitude=77.5946,
+            this.isCity=true;
+            this.$store.dispatch('GET_WEATHER_REPORT',this.city)
         },
         clean () {
             this.isCity=false,
-            this.error=false,
             this.city=''
+        },
+        extractTemprature (value) {
+            return ((value-273.15));
+        },
+        extractTime (value) {
+            return new Date(value).toTimeString();
+        },
+        extractPressure (value) {
+            return value*0.001;
         }
-        
 
     },
     created () {
-        GET_WEATHER_REPORT(city)
     },
-    computed :{
+    computed : {
         ...mapGetters ({
-            getWeatherReport : 'getWeatherReport'
+            weather : 'getWeatherReport',
+            error : 'getError'
 
         })
         
