@@ -3,7 +3,7 @@
         <div class="main">
             <h1 class="heading">To Do List</h1>
             <span>
-                <input type="text" v-model="todoitem" v-on:keyup.enter="addTask()" v-on:click="change()">
+                <input type="text" v-model="todoitem" v-on:keypress="change()" v-on:keyup.enter="addTask()" v-on:click="change()">
                 <button class="addButton" v-on:click="addTask()"> Add </button>
             </span>
             <div class="error" v-if="isEmpty"> <h6> Required </h6> </div>
@@ -75,7 +75,6 @@
         animation: slide-out 1s ease-out forwards;
         transition: opacity 1s;
         opacity: 0;
-        position: absolute;
     }
 
     .slide-move {

@@ -4,7 +4,7 @@
             <div class="overlay">
                 <video id="myVideo" playsinline autoplay muted loop> 
                     <source v-if="selectedComponent=='WeatherApp'" src="@/assets/Cloud-2142.mp4" type="video/mp4">
-                    <source v-else src="@/assets/Universe-13100.mp4" type="video/mp4">
+                    <source v-else src="@/assets/Library-846.mp4" type="video/mp4">
                 </video>
             </div>
         </div>
@@ -36,6 +36,30 @@
 <script src="./Start.js"></script>
 
 <style type="text/css" scoped>
+.videocontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    opacity: 0.5;
+}
+.overlay :hover {
+    background-color: rgba(0,0,0,0.5);
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  object-fit: fill;
+  min-width: 100%; 
+  min-height: 100%;
+}
 .maincomponent{
     margin-top: 10px;
     width:100%;
