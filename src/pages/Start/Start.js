@@ -12,12 +12,14 @@ import Quiz from '@/components/QuizPage'
 import QuizInstruction from '@/components/QuizInstruction'
 import Others from '@/components/Others'
 import Seoul from '@/components/Seoul'
+import API from '@/components/API'
 
 export default {
     name: 'Start',
     data () {
         return {
             selectedComponent:'',
+            blur:0,
         }
     },
     components :{
@@ -35,6 +37,7 @@ export default {
         QuizInstruction:QuizInstruction,
         Others:Others,
         Seoul:Seoul,
+        API:API,
     },
     methods : {
         getRidOfComponents () {
@@ -42,6 +45,8 @@ export default {
         }
     },
     watch : {
-        
+        selectedComponent () {
+            this.blur=10;
+        }
     }
 }  

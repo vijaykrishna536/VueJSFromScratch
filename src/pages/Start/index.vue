@@ -3,8 +3,8 @@
         <div class="videocontainer">
             <div class="overlay">
                 <video id="myVideo" playsinline autoplay muted loop> 
-                    <source v-if="selectedComponent===WeatherApp" src="@/assets/Cloud-2142.mp4" type="video/mp4">
-                    <source v-else src="@/assets/Library-846.mp4" type="video/mp4">
+                    <source src="@/assets/Library-846.mp4" type="video/mp4">
+                    <!-- <source src="" type="video/mp4"> -->
                 </video>
             </div>
         </div>
@@ -21,6 +21,7 @@
             <span @click="selectedComponent='Quiz'"> Quiz </span>
             <span @click="selectedComponent='Others'"> CSS Play </span>
             <span @click="selectedComponent='Seoul'"> Seoul </span>
+            <span @click="selectedComponent='API'"> API Testing </span>
             <!-- <h2> {{selectedComponent}}</h2> -->
             <transition name="fade" mode='out-in'>
                 <keep-alive>

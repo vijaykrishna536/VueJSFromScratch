@@ -1,18 +1,19 @@
 import axios from "axios";
 
 export default {
-    store : {
-        users :[]
+    state : {
+        users: {}
 
     },
     getters : {
         getUsers (state) {
-            return state.state.users
+            return state.users
         }
     },
     mutations : {
         setUsers (state , payload) {
-            state.users = payload;
+            Object.assign(state,{users:payload})
+
         }
     },
     actions : {
@@ -20,10 +21,10 @@ export default {
             axios
                 .get('https://jsonplaceholder.typicode.com/users')
                 .then(response => {
-                    console.log(response.data)
+                    console.log("Data is being fetched",response.data)
                     commit('setUsers',response.data)
                 })
-                .catch(error=>console.log(console.error))
+                .catch(error=>console.log(error))
 
 
         }

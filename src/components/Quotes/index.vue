@@ -33,6 +33,7 @@
     border: 3px solid #3b5998;
     padding: 10px;
     width: 70%;
+    background-color: whitesmoke;
     border-radius:25px;
 }
 .main h1 {

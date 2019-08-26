@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { mapGetters } from 'vuex' 
+import { mapGetters, mapActions } from 'vuex' 
 
-export default{
+export default {
     name:'UserList',
     data () {
         return {
@@ -16,6 +16,10 @@ export default{
         }
     },
     methods:{
+        ...mapActions ({
+            GET_USER_LIST : 'GET_USER_LIST'
+        }),
+
         clean () {
             this.users=[];
         },
@@ -38,6 +42,9 @@ export default{
             this.users.splice(this.users.indexOf(user),1);
         },
         callUser () {
+            
+            this.$store.dispatch('GET_USER_LIST');
+            this.users =this.usersList
             // axios.get('https://jsonplaceholder.typicode.com/users')
             // .then(response=>(this.users=response.data))
             // .catch(error=>console.log(console.error))
@@ -48,5 +55,5 @@ export default{
         ...mapGetters ({
             usersList : 'getUsers'
         })
-    }
+    },
 }
