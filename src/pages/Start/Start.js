@@ -10,7 +10,8 @@ import UserList from '@/components/UserList'
 import WeatherApp from '@/components/WeatherApp'
 import Quiz from '@/components/QuizPage'
 import QuizInstruction from '@/components/QuizInstruction'
-
+import Others from '@/components/Others'
+import Seoul from '@/components/Seoul'
 
 export default {
     name: 'Start',
@@ -31,7 +32,9 @@ export default {
         Quotes:Quotes,
         Animation:Animation,
         Quiz:Quiz,
-        QuizInstruction:QuizInstruction
+        QuizInstruction:QuizInstruction,
+        Others:Others,
+        Seoul:Seoul,
     },
     methods : {
         getRidOfComponents () {
