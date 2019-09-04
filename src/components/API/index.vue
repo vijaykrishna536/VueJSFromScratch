@@ -8,12 +8,17 @@
         </h4>
         <section class="listsection">
             Select an API :
-            <select class="List" v-modal="SelectedAPI" v-on:change="update()">
-                <option v-for="{API ,index} in APIList" :key="index"> {{ API }} </option>
+            <select class="List" v-model="SelectedAPI" v-on:change="update()">
+                <option v-for="API in APIList" :key="API"> {{ API }} </option>
             </select>
-        </section>
+        </section> 
         <section>
-            <component :is="componentAPI"> </component>
+            <keep-alive>
+                <h1> {{ SelectedAPI }}</h1>
+                <component :is= "SelectedAPI" > </component>
+            </keep-alive>
+        </section>
+        <section class="css">
         </section>
     </div>
 </template>

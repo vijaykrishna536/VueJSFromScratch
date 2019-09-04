@@ -1,26 +1,18 @@
-import {mapGetters, mapActions} from 'vuex'
+import Posts from "@/components/Posts"
 
 export default {
     name:'API',
     data () {
         return {
-            componentAPI:'',
-            selectedAPI:'',
-            APIList :['Posts', 'Photoes', 'Albums', 'Comments'],
+            SelectedAPI:'',
+            APIList : ['Posts', 'Photos', 'Albums', 'Comments'],
 
         }
+    },
+    component : {
+        Posts :Posts,
     },
     methods : {
-        ...mapActions ({
-
-        }),
-        update () {
-            this.componentAPI = this.selectedAPI;
-        }
-    },
-    computed : {
-        ...mapActions ({
-
-        })
+        
     }
 }

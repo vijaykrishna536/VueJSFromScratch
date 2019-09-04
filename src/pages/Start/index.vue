@@ -10,7 +10,7 @@
         </div>
         <div class="maincomponent">
             <span @click="selectedComponent='Todo'"> Todo </span>
-            <span @click="selectedComponent='NumberGuessing'">Number Guessing</span>
+            <span @click="selectedComponent='NumberGuessing'">Number Guess</span>
             <span @click="selectedComponent='LoanCalculator'">Loan Calculator</span> 
             <span @click="selectedComponent='UserList'"> User List </span>
             <span @click="selectedComponent='WeatherApp'">Weather App</span> 
@@ -21,11 +21,13 @@
             <span @click="selectedComponent='Quiz'"> Quiz </span>
             <span @click="selectedComponent='Others'"> CSS Play </span>
             <span @click="selectedComponent='Seoul'"> Seoul </span>
-            <span @click="selectedComponent='API'"> API Testing </span>
+            <span @click="selectedComponent='API'"> API Test </span>
+            <span @click="selectedComponent='CSS'"> CSS </span>
+            <span @click="selectedComponent='KeyBoard'"> KeyBoard </span>
             <!-- <h2> {{selectedComponent}}</h2> -->
             <transition name="fade" mode='out-in'>
                 <keep-alive>
-                    <component class="childcomponent" :is = "selectedComponent" v-on:newComponent = "selectedComponent = $event"></component>
+                    <component class="childcomponent" :is = "selectedComponent" ></component>
                 </keep-alive>
             </transition>
             <div class="navigation" v-if="selectedComponent!=''">
@@ -75,6 +77,11 @@
     background: gray;
     color: white;
 }
+.maincomponent span:hover {
+    background: white;
+    color: gray;
+}
+
 .childcomponent {
     margin-top: 30px;
 }

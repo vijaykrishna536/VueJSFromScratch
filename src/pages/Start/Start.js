@@ -13,6 +13,8 @@ import QuizInstruction from '@/components/QuizInstruction'
 import Others from '@/components/Others'
 import Seoul from '@/components/Seoul'
 import API from '@/components/API'
+import CSS from '@/components/CSS'
+import KeyBoard from '@/components/KeyBoard'
 
 export default {
     name: 'Start',
@@ -38,15 +40,21 @@ export default {
         Others:Others,
         Seoul:Seoul,
         API:API,
+        CSS:CSS,
+        KeyBoard:KeyBoard,
     },
     methods : {
         getRidOfComponents () {
             this.selectedComponent=''
+        },
+        setSelectedComponent(name) {
+            this.selectedComponent= name;
+            this.$router.push({name:'start',params:{component:name}})
         }
     },
     watch : {
-        selectedComponent () {
-            this.blur=10;
-        }
+        // selectedComponent: function (name) {
+        //     this.$router.push({name:'start',params:{component:this.selectedComponent}})
+        // }
     }
 }  

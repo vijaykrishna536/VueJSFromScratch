@@ -1,21 +1,10 @@
 <template>
     <div>
-        <!-- <div class="videocontainer">
-            <div class="overlay">
-                <mdb-carousel :interval="8000" showControls showIndicators id="myCarousel">
-                    <mdb-carousel-item img src="@/assets/assets/adventure-automobile-classic-2533092.jpg" alt="First slide" />
-                    <mdb-carousel-item img src="@/assets/adventure-blur-close-up-346885.jpg" alt="Second slide" />
-                    <mdb-carousel-item img src="@/assets/coconut-trees-couple-daylight-2174656.jpg" alt="Third slide" />
-                </mdb-carousel>
-            </div>
-            https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ
-        </div> -->
         <div class='opening'>
             <h1> FUNZONE </h1>
             <h3>Let's get Started</h3>
         </div>
         <div>
-            <!-- <img src="@/assets/coconut-trees-couple-daylight-2174656.jpg"> -->
             <router-link :to="'/start'"><button> Let's Get Started</button></router-link>
         </div>
     </div>
