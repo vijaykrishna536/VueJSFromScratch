@@ -71,11 +71,12 @@
 
 }
 .maincomponent span {
-    padding: 5px;
+    padding: 8px;
     text-decoration: none;
     border: 2px #000000;
     background: gray;
     color: white;
+    font-size: 14px;
 }
 .maincomponent span:hover {
     background: white;
