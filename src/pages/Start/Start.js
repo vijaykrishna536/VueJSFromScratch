@@ -10,13 +10,18 @@ import UserList from '@/components/UserList'
 import WeatherApp from '@/components/WeatherApp'
 import Quiz from '@/components/QuizPage'
 import QuizInstruction from '@/components/QuizInstruction'
-
+import Others from '@/components/Others'
+import Seoul from '@/components/Seoul'
+import API from '@/components/API'
+import CSS from '@/components/CSS'
+import KeyBoard from '@/components/KeyBoard'
 
 export default {
     name: 'Start',
     data () {
         return {
             selectedComponent:'',
+            blur:0,
         }
     },
     components :{
@@ -31,14 +36,25 @@ export default {
         Quotes:Quotes,
         Animation:Animation,
         Quiz:Quiz,
-        QuizInstruction:QuizInstruction
+        QuizInstruction:QuizInstruction,
+        Others:Others,
+        Seoul:Seoul,
+        API:API,
+        CSS:CSS,
+        KeyBoard:KeyBoard,
     },
     methods : {
         getRidOfComponents () {
             this.selectedComponent=''
+        },
+        setSelectedComponent(name) {
+            this.selectedComponent= name;
+            this.$router.push({name:'start',params:{component:name}})
         }
     },
     watch : {
-        
+        // selectedComponent: function (name) {
+        //     this.$router.push({name:'start',params:{component:this.selectedComponent}})
+        // }
     }
 }  

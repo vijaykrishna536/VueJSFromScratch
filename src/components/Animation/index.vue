@@ -24,6 +24,7 @@
     border: 3px solid rgb(243, 177, 35);
     padding: 10px;
     width: 60%;
+    background-color: whitesmoke;
     border-radius: 30px;
 }
 .main h1 {

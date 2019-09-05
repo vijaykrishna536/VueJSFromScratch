@@ -33,6 +33,7 @@
     border: 3px solid #3b5998;
     padding: 10px;
     width: 70%;
+    background-color: whitesmoke;
     border-radius:25px;
 }
 .main h1 {
@@ -55,6 +56,9 @@
     height: 33px;
     border-radius:10px;
 }
+.main button :hover {
+    background-color: chartreuse;
+}
 .foot {
     background-color: #dfe3ee;
     margin-top: 10px;
@@ -76,7 +80,6 @@
     margin-top:10px;
     margin-left: 15px;
     width:94%;
-
 }
 .quotebox QuoteBox {
     height: 200px;

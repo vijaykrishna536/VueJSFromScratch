@@ -1,8 +1,16 @@
 <template>
     <div>
+        <div class="videocontainer">
+            <div class="overlay">
+                <video id="myVideo" playsinline autoplay muted loop> 
+                    <source src="@/assets/Library-846.mp4" type="video/mp4">
+                    <!-- <source src="" type="video/mp4"> -->
+                </video>
+            </div>
+        </div>
         <div class="maincomponent">
             <span @click="selectedComponent='Todo'"> Todo </span>
-            <span @click="selectedComponent='NumberGuessing'">Number Guessing</span>
+            <span @click="selectedComponent='NumberGuessing'">Number Guess</span>
             <span @click="selectedComponent='LoanCalculator'">Loan Calculator</span> 
             <span @click="selectedComponent='UserList'"> User List </span>
             <span @click="selectedComponent='WeatherApp'">Weather App</span> 
@@ -11,10 +19,15 @@
             <span @click="selectedComponent='Quotes'"> Quotes </span> 
             <span @click="selectedComponent='Animation'"> Animation </span>
             <span @click="selectedComponent='Quiz'"> Quiz </span>
+            <span @click="selectedComponent='Others'"> CSS Play </span>
+            <span @click="selectedComponent='Seoul'"> Seoul </span>
+            <span @click="selectedComponent='API'"> API Test </span>
+            <span @click="selectedComponent='CSS'"> CSS </span>
+            <span @click="selectedComponent='KeyBoard'"> KeyBoard </span>
             <!-- <h2> {{selectedComponent}}</h2> -->
             <transition name="fade" mode='out-in'>
                 <keep-alive>
-                    <component class="childcomponent" :is = "selectedComponent" v-on:newComponent = "selectedComponent = $event"></component>
+                    <component class="childcomponent" :is = "selectedComponent" ></component>
                 </keep-alive>
             </transition>
             <div class="navigation" v-if="selectedComponent!=''">
@@ -28,6 +41,30 @@
 <script src="./Start.js"></script>
 
 <style type="text/css" scoped>
+.videocontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    opacity: 0.5;
+}
+.overlay :hover {
+    background-color: rgba(0,0,0,0.5);
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  object-fit: fill;
+  max-width: 100%; 
+  max-height: 100%;
+}
 .maincomponent{
     margin-top: 10px;
     width:100%;
@@ -40,6 +77,11 @@
     background: gray;
     color: white;
 }
+.maincomponent span:hover {
+    background: white;
+    color: gray;
+}
+
 .childcomponent {
     margin-top: 30px;
 }

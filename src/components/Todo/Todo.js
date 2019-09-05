@@ -27,7 +27,7 @@ export default {
             this.todoitem='';
         },
         change () {
-            
+                console.log("called")
                 if(this.isEmpty==true)
                     this.isEmpty=false;           
         }
