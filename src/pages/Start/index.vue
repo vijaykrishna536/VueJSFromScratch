@@ -1,33 +1,33 @@
 <template>
     <div>
+        <!-- <div :class="{backdrops:isBackdrop}"></div> -->
         <div class="videocontainer">
             <div class="overlay">
                 <video id="myVideo" playsinline autoplay muted loop> 
                     <source src="@/assets/Library-846.mp4" type="video/mp4">
-                    <!-- <source src="" type="video/mp4"> -->
                 </video>
             </div>
         </div>
         <div class="maincomponent">
-            <span @click="selectedComponent='Todo'"> Todo </span>
-            <span @click="selectedComponent='NumberGuessing'">Number Guess</span>
-            <span @click="selectedComponent='LoanCalculator'">Loan Calculator</span> 
-            <span @click="selectedComponent='UserList'"> User List </span>
-            <span @click="selectedComponent='WeatherApp'">Weather App</span> 
-            <span @click="selectedComponent='GitHub'"> Github Profile </span> 
-            <span @click="selectedComponent='BattleGround'"> Battle Ground </span>
-            <span @click="selectedComponent='Quotes'"> Quotes </span> 
-            <span @click="selectedComponent='Animation'"> Animation </span>
-            <span @click="selectedComponent='Quiz'"> Quiz </span>
-            <span @click="selectedComponent='Others'"> CSS Play </span>
-            <span @click="selectedComponent='Seoul'"> Seoul </span>
-            <span @click="selectedComponent='API'"> API Test </span>
-            <span @click="selectedComponent='CSS'"> CSS </span>
-            <span @click="selectedComponent='KeyBoard'"> KeyBoard </span>
+            <span @click="setSelectedComponent('Todo')"> Todo </span>
+            <span @click="setSelectedComponent('NumberGuessing')">Number Guess</span>
+            <span @click="setSelectedComponent('LoanCalculator')">Loan Calculator</span> 
+            <span @click="setSelectedComponent('UserList')"> User List </span>
+            <span @click="setSelectedComponent('WeatherApp')">Weather App</span> 
+            <span @click="setSelectedComponent('GitHub')"> Github Profile </span> 
+            <span @click="setSelectedComponent('BattleGround')"> Battle Ground </span>
+            <span @click="setSelectedComponent('Quotes')"> Quotes </span> 
+            <span @click="setSelectedComponent('Animation')"> Animation </span>
+            <span @click="setSelectedComponent('Quiz')"> Quiz </span>
+            <span @click="setSelectedComponent('Others')"> CSS Play </span>
+            <span @click="setSelectedComponent('Seoul')"> Seoul </span>
+            <span @click="setSelectedComponent('API')"> API Test </span>
+            <span @click="setSelectedComponent('CSS')"> CSS </span>
+            <span @click="setSelectedComponent('KeyBoard')"> KeyBoard </span>
             <!-- <h2> {{selectedComponent}}</h2> -->
             <transition name="fade" mode='out-in'>
                 <keep-alive>
-                    <component class="childcomponent" :is = "selectedComponent" ></component>
+                    <component class="childcomponent" :is = "selectedComponent"></component>
                 </keep-alive>
             </transition>
             <div class="navigation" v-if="selectedComponent!=''">
@@ -46,6 +46,15 @@
     top: 0;
     left: 0;
     z-index: -2;
+}
+.backdrops {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    height: 100vh;
+    width: 100vw;
+    z-index: 7;
 }
 .overlay {
     position: fixed;
@@ -71,11 +80,12 @@
 
 }
 .maincomponent span {
-    padding: 5px;
+    padding: 8px;
     text-decoration: none;
     border: 2px #000000;
     background: gray;
     color: white;
+    font-size: 14px;
 }
 .maincomponent span:hover {
     background: white;

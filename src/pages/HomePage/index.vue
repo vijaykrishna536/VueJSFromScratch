@@ -5,7 +5,7 @@
             <h3>Let's get Started</h3>
         </div>
         <div>
-            <router-link :to="'/start'"><button> Let's Get Started</button></router-link>
+            <router-link :to="'/start/home'"><button> Let's Get Started</button></router-link>
         </div>
     </div>
 </template>

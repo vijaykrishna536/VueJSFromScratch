@@ -166,7 +166,7 @@ button {
 
 .navigation {
     margin-top: 15px;
-    text: 10px;
+    font-size: 10px;
     padding: 5px;
     width: 10%;   
 }

@@ -22,6 +22,17 @@ export default {
         return {
             selectedComponent:'',
             blur:0,
+            isBackdrop:false
+        }
+    },
+    watch: {
+        '$route.params.component': {
+            handler: function(component) {
+               console.log(component)
+               this.selectedComponent= component;
+            },
+            deep: true,
+            immediate: true
         }
     },
     components :{
@@ -48,13 +59,7 @@ export default {
             this.selectedComponent=''
         },
         setSelectedComponent(name) {
-            this.selectedComponent= name;
-            this.$router.push({name:'start',params:{component:name}})
+            this.$router.push({name:'Start',params:{component:name}})
         }
-    },
-    watch : {
-        // selectedComponent: function (name) {
-        //     this.$router.push({name:'start',params:{component:this.selectedComponent}})
-        // }
     }
 }  
